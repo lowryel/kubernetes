@@ -8,6 +8,7 @@ spec:
     http:
       paths:
       - path: /foo
+        pathType: /foo
         backend:
           service:
             name: nginx-service
