@@ -2,16 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: demo-ingress
+  namespace: ingress-nginx
 spec:
   rules:
-  - host: demo.com
+  - host: atsuxie.com
     http:
       paths:
       - path: /foo
-        pathType: /foo
         backend:
           service:
-            name: nginx-service
+            name: ingress-nginx-controller
             port:
               number: 8080
 
