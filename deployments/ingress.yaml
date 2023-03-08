@@ -5,10 +5,11 @@ metadata:
   namespace: ingress-nginx
 spec:
   rules:
-  - host: atsuxie.com
+  - host: atsuson.com
     http:
       paths:
       - path: /foo
+        pathType: Prefix
         backend:
           service:
             name: ingress-nginx-controller

@@ -1,4 +1,4 @@
-# https://kubernetes.io/docs/concepts/services-networking/service/
+#https://kubernetes.io/docs/concepts/services-networking/service/
 apiVersion: v1
 kind: Service
 metadata:
@@ -6,11 +6,13 @@ metadata:
   namespace: default
 spec:
   selector:
-    app: nginx-service
+    app: demo
   type: LoadBalancer
   ports:
   - name: nginx-service
     protocol: TCP
-    port: 8080
+    port: 80
     targetPort: 80
     nodePort: 30001
+
+

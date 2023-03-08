@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo
+  name: demo-ml
   labels: 
-    app: demo
+    app: demo-ml
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: demo
+      app: demo-ml
   template:
     metadata:
       labels:
-        app: demo
+        app: demo-ml
     spec:
       containers:
-      - name: demo
+      - name: demo-ml
         image: docker/getting-started:latest
         resources:
           limits:
