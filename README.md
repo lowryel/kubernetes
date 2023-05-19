@@ -15,7 +15,6 @@
 
 - Then you reference the secret keys in the deployment file
 
-
 # demo-k8s-deployment
 
 kubsctl -n qos-demo patch pod qos-demo-pod --patch {"spec":{"containers":[{"name":"", "resource":{"limits":{"cpu":800mi}, "requests":{"cpu":800mi}}}]}}

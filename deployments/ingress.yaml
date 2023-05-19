@@ -14,3 +14,22 @@ spec:
             port:
               number: 8080
 
+
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: demo-ingress
+#   namespace: ingress-nginx
+# spec:
+#   rules:
+#   - host: atsuson.com
+#     http:
+#       paths:
+#       - path: /foo
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: ingress-nginx-controller
+#             port:
+#               number: 8080
+
