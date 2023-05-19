@@ -17,3 +17,5 @@
 
 
 # demo-k8s-deployment
+
+kubsctl -n qos-demo patch pod qos-demo-pod --patch {"spec":{"containers":[{"name":"", "resource":{"limits":{"cpu":800mi}, "requests":{"cpu":800mi}}}]}}

@@ -1,0 +1,3 @@
+resources:
+  demo-pv.yaml
+  demo-pvc.yaml

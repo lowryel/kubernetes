@@ -1,0 +1,8 @@
+resources:
+    - deployments/mongo-secret.yaml
+    - deployments/express-svc.yaml
+    - deployments/demo-service.yaml
+    - express-configmap.yaml
+    - deployments/mongo-depl.yaml
+    - deployments/mongo-express.yaml
+
