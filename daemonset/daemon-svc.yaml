@@ -1,0 +1,16 @@
+#https://kubernetes.io/docs/concepts/services-networking/service/
+apiVersion: v1
+kind: Service
+metadata:
+  name: daemonset-service
+spec:
+  selector:
+    app: demo
+  type: LoadBalancer
+  ports:
+  - name: daemonset-service
+    protocol: TCP
+    port: 80
+    targetPort: 80
+    # nodePort: 30001
+

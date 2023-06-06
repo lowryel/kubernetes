@@ -11,6 +11,8 @@ spec:
   clusterIP: None
   selector:
     app: nginx
+
+
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -42,7 +44,28 @@ spec:
       name: www
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "my-storage-class"
+      storageClassName: manual
       resources:
         requests:
           storage: 1Gi
+
+
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: task-pv-pod
+# spec:
+#   volumes:
+#     - name: task-pv-storage
+#       persistentVolumeClaim:
+#         claimName: task-pv-claim
+#   containers:
+#     - name: task-pv-container
+#       image: nginx
+#       ports:
+#         - containerPort: 80
+#           name: "http-server"
+#       volumeMounts:
+#         - mountPath: "/usr/share/nginx/html"
+#           name: task-pv-storage
+

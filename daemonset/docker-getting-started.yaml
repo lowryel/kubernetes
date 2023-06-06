@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo
+  labels: 
+    app: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+      - name: demo
+        image: docker/getting-started:latest
+        resources:
+          limits:
+            memory: 128Mi
+            cpu: 500m
+          requests:
+            memory: 128Mi
+            cpu: 450m
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: path
+          mountPath: /var/demo/data
+        env:
+          - name: ELASTICSEARCH_HOST
+            value: elasticsearch
+          - name: ELASTICSEARCH_PORT
+            value: "9200"
+      volumes:
+      - name: path
+        hostPath:
+          path: /var/demo/data
