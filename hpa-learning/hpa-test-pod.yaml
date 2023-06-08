@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-hpa-load-test-app
+spec:
+  selector:
+    matchLabels:
+      run: python-constant-load-test
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: python-constant-load-test
+    spec:
+      containers:
+      - name: python-constant-load-test
+        image: python:alpine3.15
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            cpu: 200m
+        command:
+          - /bin/entrypoint.sh
+        volumeMounts:
+          - name: python-test-code-volume
+            mountPath: /bin/entrypoint.sh
+            readOnly: true
+            subPath: entrypoint.sh
+      volumes:
+        - name: python-test-code-volume
+          configMap:
+            defaultMode: 0700
+            name: python-test-code-configmap
