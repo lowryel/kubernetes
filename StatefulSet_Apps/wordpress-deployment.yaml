@@ -54,7 +54,11 @@ spec:
           valueFrom:
             secretKeyRef:
               name: mysql-pass
-            key: password
+              key: mysql-password
+        resources:
+          limits:
+            cpu: ""
+            memory: ""
         ports:
         - containerPort: 80
           name: wordpress
